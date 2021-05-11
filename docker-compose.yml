@@ -17,8 +17,8 @@ services:
     depends_on: 
       - www
       - mysql
-      - resis
-      -dashboard
+      - redis
+      - dashboard
 
   dashboard:
     build: ./project/dashboard
