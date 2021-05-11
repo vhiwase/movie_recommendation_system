@@ -25,4 +25,3 @@ src/.DS_Store
 *.egg-info*
 */.idea/*
 */.DS_Store/*
-*/installation_commands.txt/*
