@@ -9,8 +9,6 @@ technomile_venv/
 */venv/*
 */.venv/*
 */.vscode/*
-*/project/server/main/nlp_engine/dump/*
-project/server/main/nlp_engine/dump/
 *.pkl
 target
 .idea
