@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+
+  web:
+    build: .
+    image: web
+    container_name: web
+    ports:
+      - 5000:5000
+    command: python3 manage.py run -h 0.0.0.0
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - FLASK_DEBUG=1
+      - APP_SETTINGS=project.server.config.BaseConfig
+    depends_on: 
+      - www
+      - mysql
+
+  dashboard:
+    build: ./project/dashboard
+    ports: 
+      - 9181:9181
+    command: rq-dashboard -H redis
+    depends_on: 
+      - redis
+      - mysql
+
+  redis:
+    image: redis:5.0.7-alpine
+
+  mysql:
+    image: mysql:5.7
+    entrypoint: ['/entrypoint.sh', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - 3307:3306
+    volumes:
+      - ./project/www/data/:/docker-entrypoint-initdb.d
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+
+  www:
+      build: ./project/www
+      ports:
+        - "5004:80"
+      volumes:
+        - ./project/www/html:/var/www/html/
+      links:
+        - mysql
+      networks:
+        - default
+volumes:
+    persistent:
