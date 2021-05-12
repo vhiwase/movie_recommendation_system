@@ -14,3 +14,4 @@ def get_public_ip():
 
 if __name__ == '__main__':
     my_public_ip = get_public_ip()
+    print(my_public_ip)
