@@ -8,7 +8,7 @@ BASE_PATH = FILE_PATH.parent
 file = (BASE_PATH/"project/www/html/webdictionary.txt").absolute().as_posix()
 
 @click.command()
-@click.option('--localhost', '-L', prompt='Bool', help='localhost')
+@click.option('--localhost', '-L', prompt='Bool', help='localhost', default=False, show_default='False')
 def get_public_ip(localhost=False):
     bashCommand = """host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'"""
     my_public_ip = subprocess.getoutput(bashCommand)
