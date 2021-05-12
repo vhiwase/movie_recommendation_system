@@ -32,7 +32,7 @@ def check():
 
 @main_blueprint.route("/")
 def login_page():
-    redirect(get_public_ip+':5004')
+    redirect(get_public_ip()+':5000')
 
 
 @main_blueprint.route("/home")
