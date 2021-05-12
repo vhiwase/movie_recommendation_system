@@ -4,9 +4,6 @@ from project.server import create_app
 import redis
 from rq import Connection, Worker
 
-app = create_app()
-cli = FlaskGroup(create_app=create_app)
-
 @cli.command()
 def test():
     """Runs the unit tests without test coverage."""

@@ -8,7 +8,7 @@ services:
     container_name: web
     ports:
       - 5000:5000
-    command: python3 manage.py run -h 0.0.0.0
+    command: python3 -u manage.py run -h 0.0.0.0
     volumes:
       - .:/usr/src/app
     environment:
@@ -18,15 +18,17 @@ services:
       - www
       - mysql
       - redis
-      - dashboard
 
-  dashboard:
-    build: ./project/dashboard
-    ports: 
-      - 9181:9181
-    command: rq-dashboard -H redis
-    depends_on: 
-      - redis
+  # publicip:
+  #   image: web
+  #   ports:
+  #     - :5000
+  #   container_name: publicip
+  #   command: python3 public_ip.py
+  #   volumes:
+  #     - .:/usr/src/app
+  #   depends_on: 
+  #     - web
 
   redis:
     image: redis:5.0.7-alpine

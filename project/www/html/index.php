@@ -11,6 +11,10 @@ if (!isset($_SESSION['user'])) {
 $res = $conn->query("SELECT * FROM users WHERE id=" . $_SESSION['user']);
 $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+$public_ip = fread($myfile,filesize("webdictionary.txt"));
+fclose($myfile);
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -49,7 +53,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
         <h1>Hello, <?php echo $userRow['username']; ?><h1> 
         <h3>Welcome to Movie Recommendation System!</h3>
         <br>
-        <p><a class="btn btn-primary btn-lg" href="/home" role="button">Click on me Demo</a></p>
+        <p><a class="btn btn-primary btn-lg" href="<?php echo $public_ip;?>" role="button">Click on me Demo</a></p>
     </div>
 
     <div class="row">

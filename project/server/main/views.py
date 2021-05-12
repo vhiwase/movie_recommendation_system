@@ -11,15 +11,12 @@ import requests
 import pandas as pd
 import numpy as np
 from .engine.main import render_template, get_suggestions, home_html_path, rcmd, convert_to_list, urllib, bs, vectorizer, clf, recommend_html_path
-from .public_ip import get_public_ip
 
 main_blueprint = Blueprint("main", __name__,)
 
 FILE_PATH = pathlib.PosixPath(__file__)
 
 BASE_PATH = FILE_PATH.parent
-
-
 
 @main_blueprint.route("/check", methods=["GET"])
 def check():
