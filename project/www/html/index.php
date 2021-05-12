@@ -49,7 +49,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
         <h1>Hello, <?php echo $userRow['username']; ?><h1> 
         <h3>Welcome to Movie Recommendation System!</h3>
         <br>
-        <p><a class="btn btn-primary btn-lg" href="http://127.0.0.1:5000/" role="button">Click on me Demo</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/home" role="button">Click on me Demo</a></p>
     </div>
 
     <div class="row">
