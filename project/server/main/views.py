@@ -22,16 +22,7 @@ BASE_PATH = FILE_PATH.parent
 def check():
     return "Yes, application is up"
 
-
-# @main_blueprint.route("/demo", methods=["GET"])
-# def home():
-#     return render_template("main/home.html")
-
-# @main_blueprint.route("/")
-# def login_page():
-#     redirect("http://{}:5004".format(get_public_ip()))
-
-
+@main_blueprint.route("/")
 @main_blueprint.route("/home")
 def home():
     suggestions = get_suggestions()
