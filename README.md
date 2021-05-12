@@ -51,7 +51,7 @@ server {
   index index.html index.html;
 
   location /home {
-    proxy_pass          http://127.0.0.1:5000;
+    proxy_pass          http://127.0.0.1:5004;
     proxy_http_version  1.1;
     proxy_redirect      default;
     proxy_set_header    Upgrade $http_upgrade;
@@ -63,7 +63,7 @@ server {
   }
 
   location / {
-    proxy_pass          http://127.0.0.1:5004;
+    proxy_pass          http://127.0.0.1:8080;
     proxy_http_version  1.1;
     proxy_redirect      default;
     proxy_set_header    Upgrade $http_upgrade;
