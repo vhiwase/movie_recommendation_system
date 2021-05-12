@@ -27,7 +27,6 @@ services:
     command: rq-dashboard -H redis
     depends_on: 
       - redis
-      - mysql
 
   redis:
     image: redis:5.0.7-alpine

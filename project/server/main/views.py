@@ -11,7 +11,7 @@ import requests
 import pandas as pd
 import numpy as np
 from .engine.main import render_template, get_suggestions, home_html_path, rcmd, convert_to_list, urllib, bs, vectorizer, clf, recommend_html_path
-
+from .public_ip import get_public_ip
 
 main_blueprint = Blueprint("main", __name__,)
 
@@ -31,6 +31,10 @@ def check():
 #     return render_template("main/home.html")
 
 @main_blueprint.route("/")
+def login_page():
+    redirect(get_public_ip+':5004')
+
+
 @main_blueprint.route("/home")
 def home():
     suggestions = get_suggestions()
