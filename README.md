@@ -26,7 +26,7 @@ After Docker is installed, you can immediately get started locally with an this 
 
 - **Stop Docker:** To stop and remove containers, networks, images, and volumes `docker-compose down -v`
 
-Once you start the application, the UI is ready to go at [http://localhost](http://localhost) for registration and then application will be hosted on [http://localhost:5000/](http://localhost:5000/) which you can navigate from Demo button after successful login.
+Once you start the application, the UI is ready to go at [http://localhost](http://localhost) for registration and then application will be hosted on [http://localhost:8080/](http://localhost:8080/) which you can navigate from Demo button after successful login.
 
 NGINX Reverse Proxy Setting
 ---
