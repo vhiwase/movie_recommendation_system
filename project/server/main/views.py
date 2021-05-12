@@ -30,9 +30,9 @@ def check():
 # def home():
 #     return render_template("main/home.html")
 
-@main_blueprint.route("/")
-def login_page():
-    redirect("http://{}:5004".format(get_public_ip()))
+# @main_blueprint.route("/")
+# def login_page():
+#     redirect("http://{}:5004".format(get_public_ip()))
 
 
 @main_blueprint.route("/home")
