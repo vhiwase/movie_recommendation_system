@@ -79,7 +79,7 @@ make sure to delete the `default_server` in default file for port 80 in the same
 
 Also make sure to run the following commands:
 ```
-sudo ln -s /etc/nginx/sites-available/nmt /etc/nginx/sites-enabled/nmt
+sudo ln -s /etc/nginx/sites-available/movie /etc/nginx/sites-enabled/movie
 sudo nginx -t
 sudo systemctl restart nginx
 ```
