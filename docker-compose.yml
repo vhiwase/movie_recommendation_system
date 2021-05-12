@@ -7,7 +7,7 @@ services:
     image: web
     container_name: web
     ports:
-      - 5004:5000
+      - 5000:5000
     command: python3 -u manage.py run -h 0.0.0.0
     volumes:
       - .:/usr/src/app
@@ -38,7 +38,7 @@ services:
   www:
       build: ./project/www
       ports:
-        - "5000:80"
+        - "5004:80"
       volumes:
         - ./project/www/html:/var/www/html/
       links:
