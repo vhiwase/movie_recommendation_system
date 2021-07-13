@@ -132,3 +132,28 @@ server {
 sudo ln -s /etc/nginx/sites-available/nmt /etc/nginx/sites-enabled/nmt
 sudo nginx -t
 sudo systemctl restart nginx
+
+NOTE:
+
+Sometimes when we build docker images we usually do not associate a new tag to every build we do. This will replace our previously build tags for the same build to "<none>" in our system which creates a redundant "<none>" list of TAG and REPOSITORY.
+
+In order to list down all those dangling images we can use the following command:
+docker images -a --filter "dangling=true"
+
+In order to list down all those useful images we can use the following command:
+docker images -a --filter "dangling=false"
+
+We can also delete those not so useful dangling images using the following command:
+docker rmi -f $(docker images -a --filter "dangling=true")
+
+You can also have multiple tags when building the image:
+
+Example:
+
+$ docker build . -t airbyte/source_scaffold_source_python:latest -t airbyte/source_scaffold_source_python:1.2.1
+Here latest version will be same as 1.2.1
+
+$ docker build . -t airbyte/source_scaffold_source_python:latest -t airbyte/source_scaffold_source_python:1.2.2
+Here latest version will be same as 1.2.2
+
+This will keep track of every version and with latest sync.
